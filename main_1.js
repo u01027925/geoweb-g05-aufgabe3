@@ -43,7 +43,7 @@ var searchResult = new VectorLayer({
 map.addLayer(searchResult);
 searchResult.setStyle(new Style({
   image: new IconStyle({
-    src: './data/marker1.png'
+    src: './data/marker.png'
   })
 }));
 
