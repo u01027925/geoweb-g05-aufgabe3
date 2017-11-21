@@ -11,7 +11,7 @@ const main = {
   context: __dirname,
   target: 'web',
   entry: {
-    main: './main_1.js'
+    main: './main.js'
   },
   module: {
     rules: [
