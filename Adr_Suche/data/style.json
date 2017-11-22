@@ -1,0 +1,102 @@
+{
+  "version": 8,
+  "name": "Geoweb G05",
+  "metadata": {},
+  "center": [
+    16.288,
+    48.2196
+  ],
+  "zoom": 10,
+  "sources": {
+    "bezirksgrenzenogd": {
+      "type": "geojson",
+      "data": "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:BEZIRKSGRENZEOGD&srsName=EPSG:4326&outputFormat=json"
+    },
+    "basemap": {
+      "type": "raster",
+      "tiles": [
+        "https://maps.wien.gv.at/basemap/geolandbasemap/normal/google3857/{z}/{y}/{x}.png"
+      ],
+      "minzoom": 0,
+      "maxzoom": 20,
+      "tileSize": 256
+    }
+  },
+  "glyphs": "https://demo.tileserver.org/fonts/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "rgba(255, 255, 255, 1)"
+      }
+    },
+    {
+      "id": "basemap",
+      "type": "raster",
+      "source": "basemap"
+    },
+    {
+      "id": "ausserguertel",
+      "type": "fill",
+      "source": "bezirksgrenzenogd",
+      "filter": [
+        "all",
+        [
+          ">=",
+          "DISTRICT_CODE",
+          1110
+        ]
+      ],
+      "paint": {
+        "fill-color": "rgba(41, 48, 210, 1)",
+        "fill-outline-color": "rgba(4, 4, 4, 1)",
+        "fill-opacity": 0.7
+      }
+    },
+    {
+      "id": "innerguertel",
+      "type": "fill",
+      "source": "bezirksgrenzenogd",
+      "filter": [
+        "all",
+        [
+          ">",
+          "DISTRICT_CODE",
+          1010
+        ],
+        [
+          "<",
+          "DISTRICT_CODE",
+          1110
+        ]
+      ],
+      "paint": {
+        "fill-color": "rgba(208, 208, 67, 1)",
+        "fill-outline-color": "rgba(4, 4, 4, 1)",
+        "fill-opacity": 0.7
+      }
+    },
+    {
+      "id": "innenstadt",
+      "type": "fill",
+      "source": "bezirksgrenzenogd",
+      "minzoom": 0,
+      "filter": [
+        "all",
+        [
+          "==",
+          "DISTRICT_CODE",
+          1010
+        ]
+      ],
+      "paint": {
+        "fill-color": "rgba(230, 18, 38, 1)",
+        "fill-outline-color": "rgba(4, 4, 4, 1)",
+        "fill-opacity": 0.7
+      }
+    }
+  ],
+  "sprites": "https://demo.tileserver.org/fonts/{fontstack}/{range}.pbf",
+  "id": "kfp20g6n2"
+}
