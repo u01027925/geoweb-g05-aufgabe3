@@ -6,12 +6,14 @@ Dannach im Verzeichnis des Klons
 
 # "npm install", 
 # "npm install javascript-autocomplete" sowie 
-#"npm start" 
+# "npm start" 
 
 ausführen. 
 
 Auf http://localhost:3000/ kann die Karte zur Adresssuche getestet werden.
 
 Mittels des Befehls 
+
 # "npm run build"
+
 kann die Karte verpackt werden und auf einer Website erscheinen.
