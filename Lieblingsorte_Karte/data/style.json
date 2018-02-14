@@ -1,0 +1,120 @@
+{
+  "version": 8,
+  "name": "Geoweb G05",
+  "metadata": {},
+  "center": [
+    16.370000,
+    48.209000
+  ],
+  "zoom": 10.5,
+  "sources": {
+     "feedback": {
+      "type": "geojson",
+      "data": "https://student.ifip.tuwien.ac.at/geoweb/2017/g05/Lieblingsort/postgis_geojson.php"
+    },
+    "bezirksgrenzenogd": {
+      "type": "geojson",
+      "data": "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:BEZIRKSGRENZEOGD&srsName=EPSG:4326&outputFormat=json"
+    },
+    "basemap": {
+      "type": "raster",
+      "tiles": [
+        "https://maps.wien.gv.at/basemap/geolandbasemap/normal/google3857/{z}/{y}/{x}.png"
+      ],
+      "minzoom": 0,
+      "maxzoom": 20,
+      "tileSize": 256
+    }
+
+  },
+  "glyphs": "https://demo.tileserver.org/fonts/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "rgba(255, 255, 255, 1)"
+      }
+    },
+    {
+      "id": "basemap",
+      "type": "raster",
+      "source": "basemap"
+    },
+    {
+      "id": "wenig-feedback",
+      "type": "fill",
+      "source": "bezirksgrenzenogd",
+      "filter": [
+        "all",
+        [
+          "<=",
+          "FEEDBACKS",
+          1
+        ]
+      ],
+      "paint": {
+        "fill-color": "rgba(247, 252, 185, 1)",
+        "fill-outline-color": "rgba(4, 4, 4, 1)",
+        "fill-opacity": 0.7
+      }
+    },
+    {
+      "id": "medium-feedback",
+      "type": "fill",
+      "source": "bezirksgrenzenogd",
+      "filter": [
+        "all",
+        [
+          ">",
+          "FEEDBACKS",
+          1
+        ],
+        [
+          "<",
+          "FEEDBACKS",
+          5
+        ]
+      ],
+      "paint": {
+        "fill-color": "rgba(173, 221, 142, 1)",
+        "fill-outline-color": "rgba(4, 4, 4, 1)",
+        "fill-opacity": 0.7
+      }
+    },
+    {
+      "id": "viel-feedback",
+      "type": "fill",
+      "source": "bezirksgrenzenogd",
+      "minzoom": 0,
+      "filter": [
+        "all",
+        [
+          ">=",
+          "FEEDBACKS",
+          5
+        ]
+      ],
+      "paint": {
+        "fill-color": "rgba(49, 163, 84, 1)",
+        "fill-outline-color": "rgba(4, 4, 4, 1)",
+        "fill-opacity": 0.7
+      }
+    },
+
+   {
+    "id": "feedback",
+    "type": "circle",
+    "source": "feedback",
+    "paint": {
+        "circle-radius": 7,
+        "circle-color": "rgba(232, 12, 12, 1)",
+        "circle-stroke-color": "rgba(127, 127, 127, 1)",
+        "circle-stroke-width": 1
+}
+}
+
+  ],
+  "sprites": "https://demo.tileserver.org/fonts/{fontstack}/{range}.pbf",
+  "id": "kfp20g6n2"
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link type="text/css" rel="stylesheet" href="https://student.ifip.tuwien.ac.at/geoweb/2017/g05/style.css"/>
+	<title>Lieblingsorte</title>
+<link href="style.css" rel="stylesheet"></head>
+
+<body>
+
+	<img src="/geoweb/2017/g05/Skyline_Vienna-01.jpg" alt="Wien Skyline" style="width:100%;height:40%;">
+	<ul>
+		<li><a href="https://student.ifip.tuwien.ac.at/geoweb/2017/g05/start_content_grp.htm" >Home</a></li>
+		<li><a class="active" href="https://student.ifip.tuwien.ac.at/geoweb/2017/g05/project_map_build/index.html" >Projekt: Lieblingsorte | Karte</a></li>
+		<li><a href="https://student.ifip.tuwien.ac.at/geoweb/2017/g05/Lieblingsort/geoweb_pg_lieblingsorte.php" >Projekt: Lieblingsorte | Liste</a></li>
+		<li><a href="https://student.ifip.tuwien.ac.at/geoweb/2017/g05/intranet/intranet.htm" >Intranet</a></li>
+		<li><a href="https://student.ifip.tuwien.ac.at/geoweb/2017/g05/team/team.htm" >Team</a></li>
+		<li><a href="https://student.ifip.tuwien.ac.at/geoweb/2017/g05/feedback_homepage/feedback.php" >Feedback</a></li>
+		<li><a href="https://student.ifip.tuwien.ac.at/geoweb/2017/g05/impressum/impressum.htm" >Impressum</a></li>
+
+	</ul>
+	<h1> Zeichnen Sie Ihren Lieblingsort ein:</h1><br><br>
+		<div class="map" id="map">
+    		<input id="q" name="q" type="text" placeholder="Adresse bitte hier eingeben..."></input>
+  	</div>
+
+<!--Wichtig für Feedback, Zeigt Feedback beim Anklick der Punkte an, Feedback Funktion wird hauptsächlich in main.js generiert-->
+  		<div class="arrow_box" id="popup-container">
+  				<div id="popup-content"></div>
+  		</div>
+
+<!--Ceckboxen Ein und Ausschalten geschieht in main.js-->
+<!--Lieblingsort-->
+			<div class="poi"><label><input type="checkbox" id="punkt_poi" checked>
+					<img class="lieblingsorte" src="data/poi.png"></img> Lieblingsorte</div>
+<!--Checkbox Museum-->
+			<div class="checkbox"><label><input type="checkbox" id="punkt_museum">
+					<img class="symbol" src="data/museum.png"></img> Museen</label></div>
+<!--Checkbox Burg-->
+			<div class="checkbox"><label><input type="checkbox" id="punkt_burg">
+					<img class="symbol" src="data/burg.png"></img> Burgen und Schlösser</label></div>
+<!--Checkbox Burg-->
+			<div class="checkbox"><label><input type="checkbox" id="punkt_sehen">
+					<img class="symbol" src="data/sehen.png"></img> Sehenswürdigkeiten</label></div>
+<!--Checkbox Wlan-->
+			<div class="checkbox"><label><input type="checkbox" id="punkt_wlan">
+					<img class="symbol" src="data/wlan.png"></img> Öffentliche Wlan Standorte</label></div>
+<!--Anzahl Lieblingsorte nach Bezirken-->
+			<div class="poizahl"><label><input type="checkbox" id="poly_bezirke">
+					<img class="symbollang" src="data/poianz.png"></img> Anzahl eingetragene Lieblingsorte (ein Eintrag oder weniger = Gelb | weniger als 5 Einträge = Hellgrün | mehr als 5 Einträge = Dunkelgrün </label></div>
+
+
+</html>
+<script type="text/javascript" src="main.a84e8a6f2f59a000873f.js"></script>
